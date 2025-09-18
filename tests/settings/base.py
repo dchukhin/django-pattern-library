@@ -42,17 +42,12 @@ PATTERN_LIBRARY = {
         ("atoms", ["patterns/atoms"]),
         ("molecules", ["patterns/molecules"]),
         ("pages", ["patterns/pages"]),
-        ("jinja", ["patterns_jinja/components"]),
-        ("jinja pages", ["patterns_jinja/pages"]),
     ],
 }
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [
-            "tests/templates",
-        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -65,21 +60,6 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
             ],
             "builtins": ["pattern_library.loader_tags"],
-        },
-    },
-    {
-        "BACKEND": "django.template.backends.jinja2.Jinja2",
-        "DIRS": [
-            "tests/jinja",
-        ],
-        "APP_DIRS": True,
-        "OPTIONS": {
-            "environment": "tests.jinja2.environment",
-            "extensions": [
-                "jinja2.ext.do",
-                "jinja2.ext.i18n",
-                "jinja2.ext.loopcontrols",
-            ],
         },
     },
 ]

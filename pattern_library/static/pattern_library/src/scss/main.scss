@@ -1,27 +1,30 @@
 @charset 'UTF-8';
 
 // Config
-@use 'config';
+@import 'config';
 
 // Abstracts
-@use 'abstracts/base';
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+@import 'abstracts/animations';
+@import 'abstracts/base';
 
 // Components
-@use 'components/code';
-@use 'components/button';
-@use 'components/heading';
-@use 'components/iframe';
-@use 'components/icon';
-@use 'components/list';
-@use 'components/md';
-@use 'components/tabbed-listing';
-@use 'components/wrapper';
+@import 'components/code';
+@import 'components/button';
+@import 'components/heading';
+@import 'components/iframe';
+@import 'components/icon';
+@import 'components/list';
+@import 'components/md';
+@import 'components/tabbed-listing';
+@import 'components/wrapper';
 
 // Layout
-@use 'layout/body';
-@use 'layout/header';
-@use 'layout/main';
-@use 'layout/sidebar';
+@import 'layout/body';
+@import 'layout/header';
+@import 'layout/main';
+@import 'layout/sidebar';
 
 // hljs theme
-@use 'hljs/a11y-dark';
+@import 'hljs/a11y-dark';

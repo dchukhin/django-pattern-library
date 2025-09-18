@@ -5,20 +5,15 @@ from django.test import SimpleTestCase, override_settings
 
 from pattern_library.utils import (
     get_pattern_config_str,
-    get_renderer,
+    get_template_ancestors,
     get_template_dirs,
 )
 
 
 class TestGetTemplateAncestors(SimpleTestCase):
-    def setUp(self):
-        self.renderer = get_renderer()
-
     def test_page(self):
         self.assertEqual(
-            self.renderer.get_template_ancestors(
-                "patterns/pages/test_page/test_page.html"
-            ),
+            get_template_ancestors("patterns/pages/test_page/test_page.html"),
             [
                 "patterns/pages/test_page/test_page.html",
                 "patterns/base_page.html",
@@ -28,9 +23,7 @@ class TestGetTemplateAncestors(SimpleTestCase):
 
     def test_fragment(self):
         self.assertEqual(
-            self.renderer.get_template_ancestors(
-                "patterns/atoms/test_atom/test_atom.html"
-            ),
+            get_template_ancestors("patterns/atoms/test_atom/test_atom.html"),
             [
                 "patterns/atoms/test_atom/test_atom.html",
             ],
@@ -38,7 +31,7 @@ class TestGetTemplateAncestors(SimpleTestCase):
 
     def test_parent_template_from_variable(self):
         self.assertEqual(
-            self.renderer.get_template_ancestors(
+            get_template_ancestors(
                 "patterns/atoms/test_extends/extended.html",
                 context={"parent_template_name": "patterns/base.html"},
             ),
