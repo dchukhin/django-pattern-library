@@ -1,2 +1,0 @@
-context:
-  parent_template_name: patterns_jinja/components/test_extends/base.html
